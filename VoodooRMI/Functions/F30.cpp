@@ -142,15 +142,7 @@ int F30::initialize()
 
 bool F30::is_valid_button(int button)
 {
-    int byte_position = button >> 3;
-    int bit_position = button & 0x07;
-    
-    /*
-     * ctrl2 -> dir == 0 -> input mode
-     * ctrl3 -> data == 1 -> actual button
-     */
-    return !(ctrl[2].regs[byte_position] & BIT(bit_position)) &&
-            (ctrl[3].regs[byte_position] & BIT(bit_position));
+    return false;
 }
 
 void F30::rmi_f30_set_ctrl_data(rmi_f30_ctrl_data *ctrl,
